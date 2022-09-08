@@ -1,0 +1,7 @@
+com\gavinheiner\player_compass\listeners\CompassClickListener.class
+com\gavinheiner\player_compass\runnables\TrackingTask.class
+com\gavinheiner\player_compass\listeners\GiveCompassListener.class
+com\gavinheiner\player_compass\runnables\TrackingTask$1.class
+com\gavinheiner\player_compass\PlayerCompass.class
+com\gavinheiner\player_compass\runnables\TrackingTask$2.class
+com\gavinheiner\player_compass\listeners\CancelTrackingListener.class

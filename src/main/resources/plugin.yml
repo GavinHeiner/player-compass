@@ -1,0 +1,5 @@
+name: PlayerCompass
+version: 1.0
+author: Gavin Heiner
+main: com.gavinheiner.player_compass.PlayerCompass
+api-version: 1.19

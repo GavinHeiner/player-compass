@@ -14,8 +14,14 @@ import java.util.List;
 
 @RequiredArgsConstructor
 public class CancelTrackingListener implements Listener {
-    private static final List<TrackingTask> tasks = CompassListener.getTasks();;
+    private static final List<TrackingTask> tasks = CompassListener.getTasks();
     private final PlayerCompass plugin;
+
+    @EventHandler
+    public void onTrackerDisconnect(PlayerQuitEvent event) { cancelTasksForTracker(event.getPlayer()); }
+
+    @EventHandler
+    public void onTrackerChangeWorld(PlayerChangedWorldEvent event) { cancelTasksForTracker(event.getPlayer()); }
 
     @EventHandler
     public void onTargetDisconnect(PlayerQuitEvent event) {
@@ -39,6 +45,18 @@ public class CancelTrackingListener implements Listener {
 
             new TrackingTask(task.getTracker(), null, task.getItem(), plugin);
             task.getTracker().sendMessage("Tracked target has left your world.");
+        });
+    }
+
+    private void cancelTasksForTracker(Player tracker) {
+        List<TrackingTask> tasksToCancel = new ArrayList<>();
+
+        tasks.stream().filter(task -> tracker.equals(task.getTracker()))
+                .forEach(tasksToCancel::add);
+
+        tasksToCancel.forEach(task -> {
+            task.cancel();
+            tasks.remove(task);
         });
     }
 }

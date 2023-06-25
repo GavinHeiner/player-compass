@@ -102,6 +102,7 @@ public class TrackingTask {
     }
 
     public void cancel() {
+        stopTrackingWithCompass();
         task.cancel();
     }
 }

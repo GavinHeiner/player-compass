@@ -35,7 +35,8 @@ public class TrackingTask {
     private void trackWorldSpawn() {
         task = new BukkitRunnable() {
             public void run() {
-                if (item != null && item.getType() == Material.COMPASS) stopTrackingWithCompass();
+                if (item != null && item.getType() == Material.COMPASS)
+                    stopTrackingWithCompass();
             }
         };
 
@@ -46,7 +47,8 @@ public class TrackingTask {
         task = new BukkitRunnable() {
             @Override
             public void run() {
-                if (item != null && item.getType() == Material.COMPASS) startTrackingWithCompass(target.getDisplayName());
+                if (item != null && item.getType() == Material.COMPASS)
+                    startTrackingWithCompass(target.getDisplayName());
             }
         };
 

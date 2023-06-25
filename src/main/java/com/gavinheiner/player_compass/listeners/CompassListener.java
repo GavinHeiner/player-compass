@@ -51,11 +51,15 @@ public class CompassListener implements Listener {
             tasks.remove(getTaskForTracker(tracker));
 
             currentTarget = task.getTarget();
-        } else currentTarget = null;
+        }
+        else currentTarget = null;
     }
 
     private TrackingTask getTaskForTracker(Player tracker) {
-        for (TrackingTask task : tasks) if (task.getTracker().equals(tracker)) return task;
+        for (TrackingTask task : tasks)
+            if (task.getTracker().equals(tracker))
+                return task;
+
         return null;
     }
 
@@ -83,6 +87,8 @@ public class CompassListener implements Listener {
 
     private void createTrackingTaskForTarget(Player target) {
         TrackingTask task = new TrackingTask(tracker, target, item, plugin);
-        if (target != null) tasks.add(task);
+
+        if (target != null)
+            tasks.add(task);
     }
 }
